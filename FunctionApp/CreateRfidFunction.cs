@@ -23,8 +23,15 @@ namespace CleverFunctionApp.Functions
              [HttpTrigger(AuthorizationLevel.Function, "post", Route = "v1/create")] HttpRequest req)
         {
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            string? rfid = JsonSerializer.Deserialize<String>(requestBody);
-            _logger.LogInformation($"Processing CreateRfid request. with id: {rfid}");
+            string? rfid;
+            if (string.IsNullOrEmpty(requestBody))
+            {
+                return new BadRequestObjectResult("RequestBody cannot be null or empty.");
+            }
+            else
+            {
+                rfid = JsonSerializer.Deserialize<string>(requestBody);
+            }
 
             if (string.IsNullOrEmpty(rfid))
             {
