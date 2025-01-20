@@ -1,0 +1,155 @@
+{
+  "name": "Clever",
+  "version": "1",
+  "items": [
+    {
+      "type": "folder",
+      "name": "Functions",
+      "items": [
+        {
+          "type": "http",
+          "name": "Authenticate",
+          "seq": 2,
+          "request": {
+            "url": "{{baseUrl}}/api/v1/Authenticate?rfid=1234565.1&code={{functioncode}}",
+            "method": "GET",
+            "headers": [],
+            "params": [
+              {
+                "name": "rfid",
+                "value": "1234565.1",
+                "type": "query",
+                "enabled": true
+              },
+              {
+                "name": "code",
+                "value": "{{functioncode}}",
+                "type": "query",
+                "enabled": true
+              }
+            ],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "docs": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Create",
+          "seq": 1,
+          "request": {
+            "url": "{{baseUrl}}/api/v1/Create?code={{functioncode}}",
+            "method": "POST",
+            "headers": [],
+            "params": [
+              {
+                "name": "code",
+                "value": "{{functioncode}}",
+                "type": "query",
+                "enabled": true
+              }
+            ],
+            "body": {
+              "mode": "json",
+              "json": "\"1234565.2\"",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "docs": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Ping",
+          "seq": 3,
+          "request": {
+            "url": "{{baseUrl}}/api/ping?code={{functioncode}}",
+            "method": "GET",
+            "headers": [],
+            "params": [
+              {
+                "name": "code",
+                "value": "{{functioncode}}",
+                "type": "query",
+                "enabled": true
+              }
+            ],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "docs": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "activeEnvironmentUid": "mNgneLYrWZkoX7reb8cyC",
+  "environments": [
+    {
+      "variables": [
+        {
+          "name": "baseUrl",
+          "value": "https://functions20250120105638.azurewebsites.net",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        },
+        {
+          "name": "functioncode",
+          "value": "ZyrRXDbQC2Ki7oPbi2SoZDl54ZajVelNewXMjpxYMdD6AzFuTdsKuw==",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        }
+      ],
+      "name": "Azure"
+    },
+    {
+      "variables": [
+        {
+          "name": "baseUrl",
+          "value": "http://localhost:7036",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        }
+      ],
+      "name": "Localhost"
+    }
+  ],
+  "brunoConfig": {
+    "version": "1",
+    "name": "Clever",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ]
+  }
+}
