@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "CleverFunctionApp": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7036 --verbose"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "containerRunArguments": "--init --verbose",
+      "httpPort": 33690,
+      "useSSL": true
+    }
+  }
+}
